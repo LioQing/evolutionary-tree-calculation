@@ -133,7 +133,12 @@ impl Component for App {
         html! {
             <div class="md:container md:mx-auto md:px-36 px-10 py-16 text-center">
                 <p class="text-5xl font-bold my-8">{ "Evolutionary Tree Calculation" }</p>
-                <div class="flex items-center justify-center w-full">
+                <div
+                    class="flex items-center justify-center w-full"
+                    ondrop={&ondrop}
+                    ondragover={&noop_drag}
+                    ondragenter={&noop_drag}
+                >
                     <label
                         for="dropzone-file"
                         class="flex flex-col items-center justify-center w-full h-48
@@ -174,10 +179,7 @@ impl Component for App {
                             type="file"
                             class="hidden"
                             accept=".txt,.json,*"
-                            ondrop={&ondrop}
                             onchange={&onchange}
-                            ondragover={&noop_drag}
-                            ondragenter={&noop_drag}
                         />
                     </label>
                 </div>
